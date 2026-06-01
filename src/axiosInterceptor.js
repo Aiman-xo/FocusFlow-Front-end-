@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create a configured instance of axios
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000',
+    baseURL: 'https://focusflow-backend-mgig.onrender.com',
     withCredentials: true, // Sends cookies if you choose to use them later
 });
 
@@ -68,7 +68,7 @@ api.interceptors.response.use(
                 
                 // Fire a completely independent axios call to the refresh route
                 // Send withCredentials: true so that the HTTP-only refresh_token cookie is attached!
-                const response = await axios.post('http://127.0.0.1:8000/api/refresh', {
+                const response = await axios.post('https://focusflow-backend-mgig.onrender.com/api/refresh', {
                     refresh_token: currentRefreshToken || ''
                 }, {
                     withCredentials: true
