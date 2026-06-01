@@ -13,8 +13,15 @@ function TodaysTask() {
 
     // 1. Calculate Countdown time to Midnight dynamically
     useEffect(() => {
+        let initialDate = new Date().getDate()
         function updateCountdown() {
             const now = new Date()
+            if (now.getDate() !== initialDate) {
+                setCountdown('0h 0m')
+                fetchTasks() 
+                initialDate = now.getDate()
+                return
+            }
             const endOfDay = new Date()
             endOfDay.setHours(23, 59, 59, 999)
             
@@ -56,10 +63,6 @@ function TodaysTask() {
             console.log(tasks);
         }
     }, [token])
-
-    useEffect(()=>{
-        console.log(tasks);
-    },[fetchTasks])
 
     // 3. Toggle Task Completion (PATCH)
     async function handleToggleStatus(taskId, currentStatus) {
