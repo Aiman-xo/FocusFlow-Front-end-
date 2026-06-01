@@ -6,6 +6,7 @@ import DashBoard from './pages/DashBoard'
 import NewTask from './pages/NewTask'
 import TodaysTask from './pages/TodaysTask'
 import ProtectedRoute from './pages/ProtectedRoute'
+import FlowStateLanding from './pages/LandingPage'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <Routes>
 
       <Route path='/login' element={<LoginPage/>}></Route>
+      <Route path='/' element={<FlowStateLanding/>}></Route>
 
       <Route element={<ProtectedRoute/>}>
         <Route path='/dashboard' element={<DashBoard/>}></Route>
