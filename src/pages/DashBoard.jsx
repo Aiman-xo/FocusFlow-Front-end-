@@ -65,7 +65,7 @@ function DashBoard() {
         async function fetchTasks() {
             setLoading(true)
             try {
-                const resp = await api.get('/todo/tasks')
+                const resp = await api.get('/todo/dash-data')
                 
                 const taskList = resp.data || []
                 setTasks(taskList)
